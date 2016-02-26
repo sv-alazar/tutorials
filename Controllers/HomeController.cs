@@ -28,15 +28,16 @@ namespace MVC2.Controllers
         
         public ActionResult Index(string searchTerm = null, int page = 1)
         {
-            //var model = from r in _db.Restaurants
-            //            orderby r.Reviews.Average(review => review.Rating) descending
-            //            select new RestaurantListViewModel
-            //            {
-            //                Id=r.Id,
-            //                Name=r.Name,
-            //                Country=r.Country,
-            //                CountOfReviews = r.Reviews.Count()
-            //            };
+            //var model = _db.restaurants
+            //      .orderbydescending(r => r.reviews.average(review => review.rating))
+            //      .where(r => searchterm == null || r.name.startswith(searchterm))
+            //      .select(r => new restaurantlistviewmodel
+            //      {
+            //          id = r.id,
+            //          name = r.name,
+            //          country = r.country,
+            //          countofreviews = r.reviews.count()
+            //      }).topagedlist(page, 10);
 
             var model = _db.Restaurants
                     .OrderByDescending(r => r.Reviews.Average(review => review.Rating))
